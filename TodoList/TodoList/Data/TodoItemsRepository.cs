@@ -10,7 +10,13 @@ namespace TodoList.Data
     {
         public TodoItem GetTodoItem()
         {
-            return null;
+            var firstItem = new TodoItem()
+            {
+                Id = DateTime.Now.ToShortDateString(),
+                Objective = "Finish this project",
+                CompleteOn = DateTime.Parse("2019-05-04").ToShortDateString()
+            };
+            return firstItem;
         }
     }
 }

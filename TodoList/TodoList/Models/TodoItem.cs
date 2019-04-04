@@ -8,9 +8,9 @@ namespace TodoList.Models
 {
     public class TodoItem
     {
-        public DateTime Id { get; set; }
+        public string Id { get; set; }
         public string Objective { get; set; }
-        public DateTime CompleteOn { get; set; }
+        public string CompleteOn { get; set; }
         public List<SelectListItem> Priority
         {
             get
