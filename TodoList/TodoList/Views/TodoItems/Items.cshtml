@@ -1,7 +1,30 @@
 ﻿
 @{
-    ViewData["Title"] = "Items";
-}
+        ViewData["Title"] = "Items";      
+ }
 
-<h1>Items</h1>
-
+<div class="jumbotron">
+    <h1>Items</h1>
+</div>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Added on</th>
+            <th scope="col">Objective</th>
+            <th scope="col">(To be)Completed On</th>
+            <th scope="col">Priority</th>
+            <th scope="col">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @*@if (firstItem != null)
+        {
+            <tr>
+                <th scope="row">@firstItem.created</th>
+                <th scope="row">@firstItem.objective</th>
+                <th scope="row">@firstItem.completeBy</th>
+                <th scope="row">@Html.DropDownListFor(model => model.Type , firstItem.priority)</th>
+            </tr>*@
+        }
+    </tbody>
+</table>
