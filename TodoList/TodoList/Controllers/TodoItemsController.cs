@@ -20,5 +20,16 @@ namespace TodoList.Controllers
             var todoItem = _todoItemsRepository.GetTodoItem();
             return View(todoItem);
         }
+
+        public IActionResult Add()
+        {
+            return View();
+        }
+
+        [ActionName("Add"), HttpPost]
+        public IActionResult AddPost()
+        {
+            return View();
+        }
     }
 }
