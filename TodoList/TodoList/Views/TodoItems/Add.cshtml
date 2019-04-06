@@ -28,6 +28,14 @@
                 @Html.TextAreaFor(m => m.Objective, new { @class = "form-control", @type = "text" })
                 <span asp-validation-for="Objective" class="text-danger"></span>
             </div>
+            <div>
+                @Html.LabelFor(m => m.Priority, new { @class = "control-label" })
+                @Html.DropDownListFor(m => m.Priority, new SelectList(Enum.GetValues(typeof(TodoItem.PriorityLevel))), new { @class="form-control"})
+            </div>
+            <div>
+                @Html.LabelFor(m => m.Status, new { @class = "control-label mt-2"})
+                @Html.DropDownListFor(m => m.Status, new SelectList(Enum.GetValues(typeof(TodoItem.StatusOption))), new { @class="form-control mb-4"})
+            </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

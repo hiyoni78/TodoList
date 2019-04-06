@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -19,14 +20,22 @@ namespace TodoList.Models
         public enum StatusOption
         {
             Completed,
+            [Display(Name ="In Progress")]
             InProgress,
+            [Display(Name ="Not Started")]
             NotStarted,
             Suspended
         }
 
         public int Id { get; internal set; }
+
+        [Required]
         public string CreatedOn { get; set; }
+
+        [Required]
         public string Objective { get; set; }
+
+        [Required]
         public string CompleteOn { get; set; }
         public PriorityLevel Priority { get; set; }
         public StatusOption Status { get; set; }

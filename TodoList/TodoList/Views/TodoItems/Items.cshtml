@@ -1,10 +1,11 @@
 ﻿@model IEnumerable<TodoList.Models.TodoItem>
 @{
-        ViewData["Title"] = "Items";
- }
+    ViewData["Title"] = "Items";
+}
 
 <div class="jumbotron">
     <h1>Items</h1>
+    <button class="btn btn-primary">@Html.ActionLink("Add", "Add")</button>
 </div>
 <table class="table">
     <thead class="thead-dark">
