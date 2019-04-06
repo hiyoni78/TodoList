@@ -23,14 +23,24 @@
         {
             foreach (var item in Model)
             {
-                <tr>
-                    <th scope="row">@item.Id</th>
-                    <td>@item.CreatedOn</td>
-                    <td>@item.Objective</td>
-                    <td>@item.CompleteOn</td>
-                    <td>@item.Priority</td>
-                    <td>@item.Status</td>
-                </tr>
+        <tr>
+            <th scope="row">@item.Id</th>
+            <td>@item.CreatedOn.ToShortDateString()</td>
+            <td>@item.Objective</td>
+            <td>@item.CompleteOn.ToShortDateString()</td>
+            <td>@item.Priority</td>
+            <td>@item.Status</td>
+            <td>
+                <div class="pull-right">
+                    <a href="@Url.Action("Edit", new { id = item.Id })" class="btn btn-warning btn-sm margin-right">
+                        <span class="glyphicon glyphicon-edit"></span><span class="hidden-xs"> Edit</span>
+                    </a>
+                    <a href="@Url.Action("Add", new { id = item.Id })" class="btn btn-danger btn-sm">
+                        <span class="glyphicon glyphicon-trash"></span><span class="hidden-xs"> Delete</span>
+                    </a>
+                </div>
+            </td>
+        </tr>
             }
 
         }

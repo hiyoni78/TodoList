@@ -26,8 +26,8 @@ namespace TodoList.Controllers
         {
             var item = new TodoItem()
             {
-                CreatedOn = DateTime.Today.ToShortDateString(),
-                CompleteOn = DateTime.Today.AddDays(1).ToShortDateString()
+                CreatedOn = DateTime.Today,
+                CompleteOn = DateTime.Today.AddDays(1)
             };
             return View(item);
         }
@@ -39,6 +39,34 @@ namespace TodoList.Controllers
             {
                 _todoItemsRepository.AddItem(item);
 
+                return RedirectToAction("items");
+            }
+            return View(item);
+        }
+
+        public IActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new StatusCodeResult(404);
+            }
+
+            var todoItem = _todoItemsRepository.GetItem((int)id);
+
+            if(todoItem == null)
+            {
+                return new NotFoundResult();
+            }
+
+            return View(todoItem);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(TodoItem item)
+        {
+            if (ModelState.IsValid)
+            {
+                _todoItemsRepository.UpdateItem(item);
                 return RedirectToAction("items");
             }
             return View(item);

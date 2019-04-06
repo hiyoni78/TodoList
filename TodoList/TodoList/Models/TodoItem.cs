@@ -30,13 +30,13 @@ namespace TodoList.Models
         public int Id { get; internal set; }
 
         [Required]
-        public string CreatedOn { get; set; }
+        public DateTime CreatedOn { get; set; }
 
         [Required]
         public string Objective { get; set; }
 
         [Required]
-        public string CompleteOn { get; set; }
+        public DateTime CompleteOn { get; set; }
         public PriorityLevel Priority { get; set; }
         public StatusOption Status { get; set; }
 
@@ -45,7 +45,7 @@ namespace TodoList.Models
 
         }
 
-        public TodoItem(int id, string createdOn, string objective, string completeOn, PriorityLevel priority, StatusOption status)
+        public TodoItem(int id, DateTime createdOn, string objective, DateTime completeOn, PriorityLevel priority, StatusOption status)
         {
             Id = id;
             CreatedOn = createdOn;

@@ -22,18 +22,18 @@ namespace TodoList.Data
                 new TodoItem
                 (
                     1, 
-                    DateTime.Today.ToShortDateString(),
+                    DateTime.Today,
                     "Finish this website",
-                    DateTime.Today.AddDays(1).ToShortDateString(),
+                    DateTime.Today.AddDays(1),
                     TodoItem.PriorityLevel.High,
                     TodoItem.StatusOption.InProgress
                 ),
                 new TodoItem
                 (
                     2,
-                    DateTime.Today.ToShortDateString(),
+                    DateTime.Today,
                     "Continue working on Ecan website",
-                    DateTime.Today.AddDays(3).ToShortDateString(),
+                    DateTime.Today.AddDays(3),
                     TodoItem.PriorityLevel.Medium,
                     TodoItem.StatusOption.Suspended
                 )

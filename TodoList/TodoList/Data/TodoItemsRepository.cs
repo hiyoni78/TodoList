@@ -30,9 +30,13 @@ namespace TodoList.Data
         {
             int nextId = Data.TodoList.Max(c => c.Id) + 1;
             item.Id = nextId;
-            item.CreatedOn = DateTime.Parse(item.CreatedOn).ToShortDateString();
-            item.CompleteOn = DateTime.Parse(item.CompleteOn).ToShortDateString();
             Data.TodoList.Add(item);
+            return;
+        }
+
+        internal void UpdateItem(TodoItem item)
+        {
+            
             return;
         }
     }

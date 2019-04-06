@@ -1,0 +1,39 @@
+﻿@model TodoList.Models.TodoItem
+@using TodoList.Models
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                @Html.LabelFor(m => m.CreatedOn, "Created on", new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.CreatedOn, "{0:d}" , new { @class = "form-control datepicker"})
+                <span asp-validation-for="CreatedOn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.CompleteOn, "Complete by", new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.CompleteOn, "{0:d}" ,new { @class = "form-control datepicker"})
+                <span asp-validation-for="CompleteOn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Objective, "Task", new { @class = "control-label" })
+                @Html.TextAreaFor(m => m.Objective, new { @class = "form-control", type = "text" })
+                <span asp-validation-for="Objective" class="text-danger"></span>
+            </div>
+            <div>
+                @Html.LabelFor(m => m.Priority, new { @class = "control-label" })
+                @Html.DropDownListFor(m => m.Priority, new SelectList(Enum.GetValues(typeof(TodoItem.PriorityLevel))), new { @class = "form-control" })
+            </div>
+            <div>
+                @Html.LabelFor(m => m.Status, new { @class = "control-label mt-2" })
+                @Html.DropDownListFor(m => m.Status, new SelectList(Enum.GetValues(typeof(TodoItem.StatusOption))), new { @class = "form-control mb-4" })
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
