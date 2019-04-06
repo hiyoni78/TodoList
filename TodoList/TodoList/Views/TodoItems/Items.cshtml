@@ -4,8 +4,8 @@
 }
 
 <div class="jumbotron">
-    <h1>Items</h1>
-    <button class="btn btn-primary">@Html.ActionLink("Add", "Add")</button>
+    <h1 class="ml-auto">Items</h1>
+    <a class="btn btn-info ml-auto" href="@Url.Action("Add")" role="button">Add</a>
 </div>
 <table class="table">
     <thead class="thead-dark">
@@ -13,7 +13,7 @@
             <th scope="col">Id</th>
             <th scope="col">Added on</th>
             <th scope="col">Objective</th>
-            <th scope="col">(To be)Completed On</th>
+            <th scope="col">Complete by</th>
             <th scope="col">Priority</th>
             <th scope="col">Status</th>
         </tr>
