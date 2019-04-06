@@ -1,4 +1,4 @@
-﻿@model TodoList.Models.TodoItem
+﻿@model IEnumerable<TodoList.Models.TodoItem>
 @{
         ViewData["Title"] = "Items";
  }
@@ -9,6 +9,7 @@
 <table class="table">
     <thead class="thead-dark">
         <tr>
+            <th scope="col">Id</th>
             <th scope="col">Added on</th>
             <th scope="col">Objective</th>
             <th scope="col">(To be)Completed On</th>
@@ -17,15 +18,20 @@
         </tr>
     </thead>
     <tbody>
-        @if (Model.Id != null)
+        @if (Model != null)
         {
-            <tr>
-                <th scope="row">@Model.Id</th>
-                <th scope="row">@Model.Objective</th>
-                <th scope="row">@Model.CompleteOn</th>
-                <th scope="row">@Html.DropDownListFor(model => model.Priority , Model.Priority)</th>
-                <th scope="row">@Html.DropDownListFor(model => model.Status, Model.Status)</th>
-            </tr>
+            foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@item.Id</th>
+                    <td>@item.CreatedOn</td>
+                    <td>@item.Objective</td>
+                    <td>@item.CompleteOn</td>
+                    <td>@item.Priority</td>
+                    <td>@item.Status</td>
+                </tr>
+            }
+
         }
     </tbody>
 </table>

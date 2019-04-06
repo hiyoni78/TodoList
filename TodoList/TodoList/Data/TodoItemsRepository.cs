@@ -8,15 +8,30 @@ namespace TodoList.Data
 {
     public class TodoItemsRepository
     {
-        public TodoItem GetTodoItem()
+      
+        public List<TodoItem> GetList()
         {
-            var firstItem = new TodoItem()
+            return Data.TodoList;
+        }
+
+        public TodoItem GetItem(int id)
+        {
+            foreach (var item in Data.TodoList)
             {
-                Id = DateTime.Now.ToShortDateString(),
-                Objective = "Finish this project",
-                CompleteOn = DateTime.Parse("2019-05-04").ToShortDateString()
-            };
-            return firstItem;
+                if (id == item.Id)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+
+        public void AddItem (TodoItem item)
+        {
+            int nextId = Data.TodoList.Max(c => c.Id) + 1;
+            item.Id = nextId;
+            Data.TodoList.Add(item);
+            return;
         }
     }
 }

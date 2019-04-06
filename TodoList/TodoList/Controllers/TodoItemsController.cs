@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TodoList.Data;
+using TodoList.Models;
 
 namespace TodoList.Controllers
 {
@@ -17,19 +18,30 @@ namespace TodoList.Controllers
         }
         public IActionResult Items()
         {
-            var todoItem = _todoItemsRepository.GetTodoItem();
+            var todoItem = _todoItemsRepository.GetList();
             return View(todoItem);
         }
 
         public IActionResult Add()
         {
-            return View();
+            var item = new TodoItem()
+            {
+                CreatedOn = DateTime.Today.ToShortDateString(),
+                CompleteOn = DateTime.Today.AddDays(1).ToShortDateString()
+            };
+            return View(item);
         }
 
-        [ActionName("Add"), HttpPost]
-        public IActionResult AddPost()
+        [HttpPost]
+        public IActionResult Add(TodoItem item)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                _todoItemsRepository.AddItem(item);
+
+                return RedirectToAction("items");
+            }
+            return View(item);
         }
     }
 }

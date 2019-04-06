@@ -14,9 +14,9 @@
     <div class="row">
         <div class="col-md-4">
             <div class="form-group">
-                @Html.LabelFor(m => m.Id, "Created on", new { @class = "control-label" })
-                @Html.TextBoxFor(m => m.Id, new { @class = "form-control", @type = "date" })
-                <span asp-validation-for="Id" class="text-danger"></span>
+                @Html.LabelFor(m => m.CreatedOn, "Created on", new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.CreatedOn, new { @class = "form-control", @type="date"})
+                <span asp-validation-for="CreatedOn" class="text-danger"></span>
             </div>
             <div class="form-group">
                 @Html.LabelFor(m => m.CompleteOn, "Complete by", new { @class = "control-label" })

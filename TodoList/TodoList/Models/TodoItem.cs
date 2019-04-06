@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,32 +9,41 @@ namespace TodoList.Models
 {
     public class TodoItem
     {
-        public string Id { get; set; }
+        public enum PriorityLevel
+        {
+            Low,
+            Medium,
+            High
+        }
+
+        public enum StatusOption
+        {
+            Completed,
+            InProgress,
+            NotStarted,
+            Suspended
+        }
+
+        public int Id { get; internal set; }
+        public string CreatedOn { get; set; }
         public string Objective { get; set; }
         public string CompleteOn { get; set; }
-        public List<SelectListItem> Priority
+        public PriorityLevel Priority { get; set; }
+        public StatusOption Status { get; set; }
+
+        public TodoItem()
         {
-            get
-            {
-                return new List<SelectListItem> {
-                    new SelectListItem { Text = "High", Value = "High" },
-                    new SelectListItem { Text = "Medium", Value = "Medium" },
-                    new SelectListItem { Text = "Low", Value = "Low" }
-                };
-            }
+
         }
-        public List<SelectListItem> Status
+
+        public TodoItem(int id, string createdOn, string objective, string completeOn, PriorityLevel priority, StatusOption status)
         {
-            get
-            {
-                return new List<SelectListItem>
-                {
-                    new SelectListItem { Text = "Completed", Value = "Completed" },
-                    new SelectListItem { Text = "In progress", Value = "In progress" },
-                    new SelectListItem { Text = "Not started", Value = "Not started" },
-                    new SelectListItem { Text = "Suspended", Value = "Suspended" }
-                };
-            }
+            Id = id;
+            CreatedOn = createdOn;
+            Objective = objective;
+            CompleteOn = completeOn;
+            Priority = priority;
+            Status = status;
         }
     }
 }
