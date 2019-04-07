@@ -29,13 +29,13 @@ namespace TodoList.Models
 
         public int Id { get; internal set; }
 
-        [Required]
+        [Required, Display(Name = "Added on"), DisplayFormat(DataFormatString ="{0:d}")]
         public DateTime CreatedOn { get; set; }
 
-        [Required]
+        [Required, Display(Name = "Task")]
         public string Objective { get; set; }
 
-        [Required]
+        [Required, Display(Name = "Complete By"), DisplayFormat(DataFormatString = "{0:d}")]
         public DateTime CompleteOn { get; set; }
         public PriorityLevel Priority { get; set; }
         public StatusOption Status { get; set; }

@@ -71,5 +71,33 @@ namespace TodoList.Controllers
             }
             return View(item);
         }
+        public IActionResult Delete(int? id)
+        {
+            if(id == null)
+            {
+                return new BadRequestResult();
+            }
+            TodoItem item = _todoItemsRepository.GetItem((int)id);
+            
+            if(item == null)
+            {
+                return new BadRequestResult();
+            }
+            return View(item);
+        }
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                _todoItemsRepository.DeleteItem(id);
+            }
+            catch
+            {
+                return new StatusCodeResult(404);
+            }
+
+            return RedirectToAction("Items");
+        }
     }
 }

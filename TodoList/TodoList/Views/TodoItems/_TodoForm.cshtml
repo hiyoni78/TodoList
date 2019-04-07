@@ -7,12 +7,12 @@
         <div class="col-md-4">
             <div class="form-group">
                 @Html.LabelFor(m => m.CreatedOn, "Created on", new { @class = "control-label" })
-                @Html.TextBoxFor(m => m.CreatedOn, "{0:d}" , new { @class = "form-control datepicker"})
+                @Html.TextBoxFor(m => m.CreatedOn, "{0:d}", new { @class = "form-control datepicker"})
                 <span asp-validation-for="CreatedOn" class="text-danger"></span>
             </div>
             <div class="form-group">
                 @Html.LabelFor(m => m.CompleteOn, "Complete by", new { @class = "control-label" })
-                @Html.TextBoxFor(m => m.CompleteOn, "{0:d}" ,new { @class = "form-control datepicker"})
+                @Html.TextBoxFor(m => m.CompleteOn, "{0:d}", new { @class = "form-control datepicker"})
                 <span asp-validation-for="CompleteOn" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -35,5 +35,5 @@
     </div>
 }
 <div>
-    <a asp-action="Index">Back to List</a>
+    @Html.ActionLink("Back to List", "Items", "TodoItems")
 </div>

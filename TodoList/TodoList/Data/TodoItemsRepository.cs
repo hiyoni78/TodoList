@@ -36,7 +36,31 @@ namespace TodoList.Data
 
         internal void UpdateItem(TodoItem item)
         {
-            
+            int itemIndex = Data.TodoList.FindIndex(m => m.Id == item.Id);
+
+            if(itemIndex == -1)
+            {
+                throw new Exception($"{item.Id} couldn't be found in our system.");
+            }
+            else
+            {
+                Data.TodoList[itemIndex] = item;
+            }
+            return;
+        }
+
+        internal void DeleteItem(int id)
+        {
+            int itemIndex = Data.TodoList.FindIndex(m => m.Id == id);
+
+            if (itemIndex == -1)
+            {
+                throw new Exception($"Can't find the file you're looking for, Please try a new search");
+            }
+            else
+            {
+                Data.TodoList.RemoveAt(itemIndex);
+            }
             return;
         }
     }
