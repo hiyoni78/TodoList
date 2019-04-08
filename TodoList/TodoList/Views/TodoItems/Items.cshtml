@@ -6,15 +6,16 @@
 <div class="jumbotron rare-wind-gradient text-center">
     <h1 class="card-title h1-responsive">Todo List</h1>
 </div>
-<a class="btn btn-dark-green pull-right" href="@Url.Action("Add")" role="button">Add</a>
+<a class="btn btn-dark-green" href="@Url.Action("Add")" role="button">Add</a>
 <table class="table">
     <thead class="thead-dark">
         <tr>
-            <th scope="col">Added on</th>
+            <th scope="col" class="d-none d-md-table-cell">Added on</th>
             <th scope="col">Objective</th>
-            <th scope="col">Complete by</th>
+            <th scope="col" class="d-none d-md-table-cell">Complete by</th>
+            <th scope="col" class="d-table-cell d-md-none">Finish by</th>
             <th scope="col">Priority</th>
-            <th scope="col">Status</th>
+            <th scope="col" class="d-none d-md-table-cell">Status</th>
             <th scope="col">Edit/Delete</th>
         </tr>
     </thead>
@@ -24,18 +25,18 @@
             foreach (var item in Model)
             {
         <tr>
-            <td>@item.CreatedOn.ToShortDateString()</td>
+            <td class="d-none d-md-table-cell">@item.CreatedOn.ToShortDateString()</td>
             <td>@item.Objective</td>
             <td>@item.CompleteOn.ToShortDateString()</td>
             <td>@item.Priority</td>
-            <td>@item.Status</td>
+            <td class="d-none d-md-table-cell">@item.Status</td>
             <td>
-                <div class="pull-right">
+                <div class="">
                     <a href="@Url.Action("Edit", new { id = item.Id })" class="btn btn-cyan btn-sm margin-right white-text">
-                        <span class="glyphicon glyphicon-edit"></span><span class="hidden-xs"> Edit</span>
+                        <i class="fas fa-edit"></i><span class="d-none d-md-inline"> Edit</span>
                     </a>
                     <a href="@Url.Action("Delete", new { id = item.Id })" class="btn btn-danger btn-sm white-text">
-                        <span class="glyphicon glyphicon-trash"></span><span class="hidden-xs"> Delete</span>
+                        <i class="fas fa-trash"></i><span class="d-none d-md-inline"> Delete</span>
                     </a>
                 </div>
             </td>
