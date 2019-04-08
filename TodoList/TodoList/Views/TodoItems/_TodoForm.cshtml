@@ -1,6 +1,14 @@
 ﻿@model TodoList.Models.TodoItem
 @using TodoList.Models
 
+@{ 
+    string value = ViewData["Title"].ToString();
+    if( value == "Edit")
+    {
+        value = "Update";
+    }
+}
+
 @using (Html.BeginForm())
 {
     <div class="row">
@@ -29,7 +37,7 @@
                 @Html.DropDownListFor(m => m.Status, new SelectList(Enum.GetValues(typeof(TodoItem.StatusOption))), new { @class = "form-control mb-4" })
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value=@value class="btn btn-primary" />
             </div>
         </div>
     </div>
