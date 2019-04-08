@@ -11,7 +11,7 @@ namespace TodoList.Data
       
         public List<TodoItem> GetList()
         {
-            return Data.TodoList;
+            return Data.TodoList.OrderBy(m => m.CompleteOn).ThenByDescending(m => m.Priority).ToList();
         }
 
         public TodoItem GetItem(int id)
@@ -28,7 +28,15 @@ namespace TodoList.Data
 
         public void AddItem (TodoItem item)
         {
-            int nextId = Data.TodoList.Max(c => c.Id) + 1;
+            int nextId;
+            if (Data.TodoList.Count != 0)
+            {
+                nextId = Data.TodoList.Max(c => c.Id) + 1;
+            }
+            else
+            {
+                nextId = 1;
+            }
             item.Id = nextId;
             Data.TodoList.Add(item);
             return;
