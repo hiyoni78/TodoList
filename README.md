@@ -1,5 +1,5 @@
 # Todo List
-A razor page that lets you create and manage a to do list. Version 1.1
+A razor page that lets you create and manage a to do list. Version 1.0
 
 ## Built With
 
