@@ -24,23 +24,23 @@
         {
             foreach (var item in Model)
             {
-        <tr>
-            <td class="d-none d-md-table-cell">@item.CreatedOn.ToShortDateString()</td>
-            <td>@item.Objective</td>
-            <td>@item.CompleteOn.ToShortDateString()</td>
-            <td>@item.Priority</td>
-            <td class="d-none d-md-table-cell">@item.Status</td>
-            <td>
-                <div class="">
-                    <a href="@Url.Action("Edit", new { id = item.Id })" class="btn btn-cyan btn-sm margin-right white-text">
-                        <i class="fas fa-edit"></i><span class="d-none d-md-inline"> Edit</span>
-                    </a>
-                    <a href="@Url.Action("Delete", new { id = item.Id })" class="btn btn-danger btn-sm white-text">
-                        <i class="fas fa-trash"></i><span class="d-none d-md-inline"> Delete</span>
-                    </a>
-                </div>
-            </td>
-        </tr>
+                <tr>
+                    <td class="d-none d-md-table-cell">@item.CreatedOn.ToShortDateString()</td>
+                    <td>@item.Objective</td>
+                    <td>@item.CompleteOn.ToShortDateString()</td>
+                    <td>@item.Priority</td>
+                    <td class="d-none d-md-table-cell">@item.Status</td>
+                    <td>
+                        <div class="">
+                            <a href="@Url.Action("Edit", new { id = item.Id })" class="btn btn-cyan btn-sm margin-right white-text">
+                                <i class="fas fa-edit"></i><span class="d-none d-md-inline"> Edit</span>
+                            </a>
+                            <a href="@Url.Action("Delete", new { id = item.Id })" class="btn btn-danger btn-sm white-text">
+                                <i class="fas fa-trash"></i><span class="d-none d-md-inline"> Delete</span>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
             }
 
         }
