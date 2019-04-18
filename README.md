@@ -10,7 +10,9 @@ A razor page that lets you create and manage a to do list. Version 1.0
 
 ## Getting Started
 
-Clone the project and have fun :)
+1. Clone the project
+2. Open solution in Visual Studio 2017 or later
+3. Run using the IIS Express. 
 
 ## License
 This project is licensed under the MIT License
